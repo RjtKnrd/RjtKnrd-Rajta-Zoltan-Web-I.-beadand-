@@ -1,0 +1,63 @@
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AJAX CRUD Példa</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>Web-programozás-1 Előadás Házi feladat</h1>
+</header>
+<nav>
+<ul>
+<li><a href="index.html">Kezdőlap</a></li>
+<li><a href="tabla.html">Táblázat</a></li>
+<li><a href="html5.html">HTML5</a></li>
+<li><a href="chart.html">ChartJS</a></li>
+<li><a href="ajax.html" class="active">AJAX</a></li>
+<li><a href="oojs.html">OOJS</a></li>
+</ul>
+</nav>
+<aside>
+<p>Oldalsáv tartalom</p>
+</aside>
+<div id="content">
+<h2>AJAX CRUD Műveletek</h2>
+<section>
+<h3>Adatok létrehozása</h3>
+<form id="createForm">
+<input type="text" id="createName" placeholder="Név" required maxlength="30">
+<input type="text" id="createHeight" placeholder="Magasság" required maxlength="30">
+<button type="submit">Létrehozás</button>
+</form>
+</section>
+<section>
+<h3>Adatok módosítása</h3>
+<input type="text" id="updateId" placeholder="ID kereséshez">
+<button id="getDataForId">Adatok betöltése</button>
+<form id="updateForm">
+<input type="text" id="updateName" placeholder="Név" required maxlength="30">
+<input type="text" id="updateHeight" placeholder="Magasság" required maxlength="30">
+<button type="submit">Módosítás</button>
+</form>
+</section>
+<section>
+<h3>Adatok listázása</h3>
+<button id="loadData">Adatok betöltése</button>
+<div id="dataList"></div>
+</section>
+<section>
+<h3>Adatok törlése</h3>
+<input type="text" id="deleteId" placeholder="ID törléshez">
+<button id="deleteData">Törlés</button>
+</section>
+<div id="stats"></div>
+<div id="feedback"></div>
+</div>
+<footer>
+<p>Rajta Zoltan Egy, Rajta Zoltan Ketto - ILAC1S</p>
+</footer>
+<script src="ajax.js"></script>
+</body>
+</html>
