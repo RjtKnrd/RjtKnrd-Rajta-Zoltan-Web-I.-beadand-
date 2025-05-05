@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chart</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Chart példa</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">Kezdőlap</a>
+    <a href="chart.html">Chart</a>
+    <a href="html5pelda.html">HTML5</a>
+    <a href="oojs.html">OOJS</a>
+    <a href="ajax.html">AJAX</a>
+    <a href="react.html">React App</a>
+  </nav>
+
+  <main>
+    <h2>Véletlen számok táblázata</h2>
+    <div id="table-container"></div>
+    <canvas id="chart" width="400" height="200"></canvas>
+  </main>
+
+  <footer>
+    <p>Készítette: Rajta Zoltan Egy, Rajta Zoltan Ketto - ILAC1S</p>
+  </footer>
+
+  <script>
+    const tableContainer = document.getElementById('table-container');
+    const chartCanvas = document.getElementById('chart');
+    const ctx = chartCanvas.getContext('2d');
+
+    const rows = 5, cols = 5;
+    let chart;
+
+    function generateTable() {
+      const table = document.createElement('table');
+      for (let i = 0; i < rows; i++) {
+        const tr = document.createElement('tr');
+        for (let j = 0; j < cols; j++) {
+          const td = document.createElement('td');
+          const value = Math.floor(Math.random() * 100);
+          td.textContent = value;
+          td.addEventListener('click', () => drawChart(i));
+          tr.appendChild(td);
+        }
+        table.appendChild(tr);
+      }
+      tableContainer.appendChild(table);
+    }
+
+    function drawChart(rowIndex) {
+      const row = tableContainer.querySelectorAll('tr')[rowIndex];
+      const values = Array.from(row.children).map(td => Number(td.textContent));
+      if (chart) chart.destroy();
+      chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: values.map((_, i) => `Oszlop ${i + 1}`),
+          datasets: [{
+            label: `Adatsor ${rowIndex + 1}`,
+            data: values,
+            borderColor: 'blue',
+            borderWidth: 2
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: { beginAtZero: true }
+          }
+        }
+      });
+    }
+
+    generateTable();
+  </script>
+</body>
+</html>

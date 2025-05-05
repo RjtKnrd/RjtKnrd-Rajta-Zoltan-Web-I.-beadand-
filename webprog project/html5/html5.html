@@ -1,0 +1,79 @@
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 API Példák</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Web-programozás-1 Előadás Házi feladat</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Kezdőlap</a></li>
+            <li><a href="tabla.html">Táblázat</a></li>
+            <li><a href="html5.html" class="active">HTML5</a></li>
+            <li><a href="chart.html">ChartJS</a></li>
+            <li><a href="ajax.html">AJAX</a></li>
+            <li><a href="oojs.html">OOJS</a></li>
+        </ul>
+    </nav>
+
+    <aside>
+        <p>Oldalsáv tartalom</p>
+    </aside>
+
+    <div id="content">
+        <h2>HTML5 API Példák</h2>
+
+        <section id="webStorage">
+            <h3>Web Storage példa</h3>
+            <button onclick="localStorage.setItem('teszt', 'Hello LocalStorage')">Mentés</button>
+            <button onclick="alert(localStorage.getItem('teszt'))">Olvasás</button>
+        </section>
+
+        <section id="webWorker">
+            <h3>Web Worker példa</h3>
+            <button onclick="startWorker()">Számolás indítása</button>
+            <p id="workerResult"></p>
+        </section>
+
+        <section id="sse">
+            <h3>Server-Sent Events példa</h3>
+            <div id="sseData">(Csak ha van SSE szerver)</div>
+        </section>
+
+        <section id="geolocation">
+            <h3>Geolocation API példa</h3>
+            <button onclick="getLocation()">Helyzet lekérése</button>
+            <p id="location"></p>
+        </section>
+
+        <section id="dragDrop">
+            <h3>Drag and Drop API példa</h3>
+            <div id="drag" draggable="true" style="width:100px;height:100px;background:red;margin:10px;">Húzz engem!</div>
+            <div id="drop" style="width:300px;height:300px;border:1px dashed #000;"></div>
+        </section>
+
+        <section id="canvas">
+            <h3>Canvas példa</h3>
+            <canvas id="myCanvas" width="300" height="150" style="border:1px solid #000;"></canvas>
+        </section>
+
+        <section id="svg">
+            <h3>SVG példa</h3>
+            <svg width="100" height="100">
+                <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+            </svg>
+        </section>
+    </div>
+
+    <footer>
+        <p>Rajta Zoltan Egy, Rajta Zoltan Ketto - ILAC1S</p>
+    </footer>
+
+    <script src="html5.js"></script>
+</body>
+</html>

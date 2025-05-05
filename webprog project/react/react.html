@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <title>React SPA – Két app</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul class="menu">
+        <li><a href="#" onclick="loadApp('app1')">App 1 – Számláló</a></li>
+        <li><a href="#" onclick="loadApp('app2')">App 2 – TicTacToe</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div id="root"></div>
+  </main>
+
+  <footer>
+    <p>Készítette: Név1, Név2 – Neptunkód1, Neptunkód2</p>
+  </footer>
+
+  <script type="text/babel" src="react/app1/src/App.js" data-app="app1"></script>
+  <script type="text/babel" src="react/app2/src/App.js" data-app="app2"></script>
+
+  <script>
+    function loadApp(appName) {
+      document.querySelectorAll('script[data-app]').forEach(script => {
+        if (script.dataset.app === appName) {
+          script.type = 'text/babel';
+        } else {
+          script.type = 'text/plain';
+        }
+      });
+      const mount = () => ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(window[appName]));
+      setTimeout(mount, 100); // némi késleltetés kell, hogy betöltse a modult
+    }
+  </script>
+</body>
+</html>

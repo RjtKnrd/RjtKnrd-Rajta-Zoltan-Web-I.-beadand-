@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Táblázat CRUD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Web-programozás-1 Előadás Házi feladat</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Kezdőlap</a></li>
+            <li><a href="tabla.html" class="active">Táblázat</a></li>
+            <li><a href="html5.html">HTML5</a></li>
+            <li><a href="chart.html">ChartJS</a></li>
+            <li><a href="ajax.html">AJAX</a></li>
+            <li><a href="oojs.html">OOJS</a></li>
+        </ul>
+    </nav>
+
+    <aside>
+        <p>Oldalsáv tartalom</p>
+    </aside>
+
+    <div id="content">
+        <h2>Táblázat CRUD műveletekkel</h2>
+        <form id="crudForm">
+            <input type="text" id="field1" placeholder="Mező 1" required minlength="2" maxlength="30">
+            <input type="text" id="field2" placeholder="Mező 2" required minlength="2" maxlength="30">
+            <input type="text" id="field3" placeholder="Mező 3" required minlength="2" maxlength="30">
+            <input type="text" id="field4" placeholder="Mező 4" required minlength="2" maxlength="30">
+            <button type="submit">Hozzáadás</button>
+        </form>
+
+        <input type="text" id="searchInput" placeholder="Keresés...">
+
+        <table id="dataTable">
+            <thead>
+                <tr>
+                    <th>Mező 1</th>
+                    <th>Mező 2</th>
+                    <th>Mező 3</th>
+                    <th>Mező 4</th>
+                    <th>Műveletek</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dinamikusan feltöltött sorok -->
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        <p>Rajta Zoltan Egy, Rajta Zoltan Ketto - ILAC1S</p>
+    </footer>
+
+    <script src="tabla.js"></script>
+</body>
+</html>
